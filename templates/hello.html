@@ -1,0 +1,11 @@
+<html>
+{% if name == 'admin' %}
+<h1>Hello, <strong>{{name}}</strong>!</h1>
+{% else %}
+<span>Hello <strong>{{name}}</strong></span>
+{% endif %}
+<ul>
+{% for i in range(1,10)%}
+    <li>{{i}}</li>
+    {% endfor %}</ul>
+</html>
