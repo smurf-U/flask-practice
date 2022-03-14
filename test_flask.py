@@ -1,11 +1,21 @@
 from flask import Flask, redirect, url_for, request, render_template, \
     make_response
+import pybrake.flask
+
 
 app = Flask(__name__)
 
 
+app.config['PYBRAKE'] = dict(
+    project_id=369254,
+    project_key='b4cd81d1b6f867b8eb3c465e6c619cc3',
+)
+app = pybrake.flask.init_app(app)
+
+
 @app.route('/')
 def sayhello():
+    5/0
     return 'Hello'
 
 
@@ -46,6 +56,7 @@ def login():
             return res
         return render_template('login.html')
           # 750976123
+
 
 if __name__ == '__main__':
     app.debug = True
